@@ -1,0 +1,17 @@
+{
+  "short_name": "wlotse",
+  "name": "Wirkstoff-Lotse AT",
+  "icons": [
+    {
+      "src": "https://flaticon.com",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "./index.html",
+  "background_color": "#ffffff",
+  "theme_color": "#0066cc",
+  "display": "standalone",
+  "orientation": "portrait"
+}

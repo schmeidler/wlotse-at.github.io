@@ -1,0 +1,250 @@
+body {
+    font-family: Helvetica Neue, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    min-height: 90vh;
+}
+
+.search-container {
+    width: 100%;
+    max-width: 500px;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-sizing: border-box;
+    margin-top: 50px;
+    height: fit-content;
+    align-self: flex-start;
+    border: 1px solid #000000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.app-title {
+    color: #000000;
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.flag-container {
+    width: 30px;
+    height: 20px;
+    border: 1px solid #000;
+    border-radius: 4px;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: inline-block;
+    flex-shrink: 0;
+
+    background: linear-gradient(
+        to bottom,
+        #b72b35 0%,
+        #b72b35 33.333%,
+        #ffffff 33.333%,
+        #ffffff 66.666%,
+        #b72b35 66.666%,
+        #b72b35 100%
+    );
+}
+
+.flag-container svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.search-wrapper {
+    position: relative;
+    width: 85%;
+    max-width: 400px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#search-box {
+    width: 100%;
+    padding: 12px 20px 12px 20px;
+    font-size: 16px;
+    box-sizing: border-box;
+    text-align: center;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    background-color: #ffffff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    color: #000000;
+}
+
+#search-box::placeholder {
+    color: #bfbfbf;
+    opacity: 1;
+}
+
+#search-box:focus {
+    border-color: #2c2c2c;
+    box-shadow: 0 0 8px rgb(0 0 0 / 0.25);
+    outline: none;
+}
+
+#results-container {
+    width: 100%;
+    padding-top: 25px;
+    box-sizing: border-box;
+}
+
+.result-item {
+    position: relative;
+    background: #ffffff;
+    padding: 5px 5px 5px 10px;
+    margin-bottom: 15px;
+
+    border: 1px solid #000000;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.result-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+}
+
+.result-item.gruen::before {
+    background: #2ecc71;
+}
+
+.result-item.gelb::before {
+    background: #f1c40f;
+}
+
+.result-item.rot::before {
+    background: #e74c3c;
+}
+
+.brand-name {
+    font-weight: bold;
+    font-size: 16px;
+    color: #000000;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 4px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #ffffff !important;
+    border-radius: 4px;
+    margin: 4px 0 4px 0px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid #000000 !important;
+}
+
+.badge.gruen { background-color: #2ecc71 !important; }
+.badge.gelb {
+    background-color: #f1c40f !important;
+    color: #000000 !important;
+}
+.badge.rot { background-color: #e74c3c !important; }
+
+.info-text {
+    font-size: 14px;
+    color: #000000;
+    margin: 0px 0 0 0;
+    line-height: 1.4;
+}
+
+.no-results {
+    text-align: center;
+    color: #000000;
+    font-size: 14px;
+    margin-top: 0px;
+}
+
+#loading-spinner {
+    text-align: center;
+    padding: 10px;
+    color: #666;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #000000;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 10px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fav-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s ease;
+}
+
+.fav-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+.fav-btn svg path {
+    fill: #ffffff;
+    stroke: #000000;
+    stroke-width: 1.5px;
+    transition: fill 0.2s ease;
+}
+
+.fav-btn.active svg path {
+    fill: #000000;
+    stroke: #000000;
+}
+
+.fav-btn:hover {
+    transform: scale(1.2);
+}
+
+#clear-btn {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 22px;
+    color: #000000;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
